@@ -1,12 +1,12 @@
-# FEDORA-CONFIGURATION-ENTREPRISE
-# Projet Kiosque d'Enregistrement : Fedora Client & API Windows
+# Debian-CONFIGURATION-ENTREPRISE
+# Projet Kiosque d'Enregistrement : Debian Client & API Windows
 
-Ce document centralise l'architecture, les pré-requis et les missions de développement pour le déploiement automatisé de machines virtuelles Fedora sécurisées.
+Ce document centralise l'architecture, les pré-requis et les missions de développement pour le déploiement automatisé de machines virtuelles Debian sécurisées.
 
 ## 1. Architecture Globale
-* **Client (VM Fedora) :** Application kiosque développée en C++ (Qt) qui bloque l'environnement de bureau au démarrage pour forcer la saisie du formulaire d'inscription.
+* **Client (VM Debian) :** Application kiosque développée en C++ (Qt) qui bloque l'environnement de bureau au démarrage pour forcer la saisie du formulaire d'inscription.
 * **Serveur (Hôte Windows) :** API REST (ex: C# ASP.NET Core) qui réceptionne les requêtes d'inscription et fournit un tableau de bord à l'administrateur pour modération.
-* **Déploiement (VM Fedora) :** Scripts système locaux s'exécutant en arrière-plan pour interroger l'API et appliquer physiquement les configurations sur le système Linux une fois l'approbation reçue.
+* **Déploiement (VM Debian) :** Scripts système locaux s'exécutant en arrière-plan pour interroger l'API et appliquer physiquement les configurations sur le système Linux une fois l'approbation reçue.
 
 ## 2. Objectifs de Développement des Scripts
 Cette section détaille la logique attendue pour les scripts d'automatisation. L'objectif est de te permettre de cibler tes recherches pour concevoir ces outils en toute autonomie (en Bash ou en Python).
@@ -28,7 +28,7 @@ Cette section détaille la logique attendue pour les scripts d'automatisation. L
 ### Phase C : Personnalisation et Nettoyage
 **Mission :** Appliquer les choix esthétiques, installer les logiciels demandés, puis verrouiller la VM pour son utilisation finale.
 * **Concepts à rechercher et maîtriser :**
-  * Installation silencieuse de paquets via le gestionnaire de Fedora (commande `dnf`).
+  * Installation silencieuse de paquets via le gestionnaire de Debian (commande `apt`).
   * Manipulation de fichiers ou exécution de commandes pour modifier le thème (KDE/Cinnamon) depuis un script.
   * Suppression totale et propre du compte temporaire qui a servi à la configuration initiale (commande `userdel`).
   * Déclenchement d'un redémarrage automatique du système pour afficher l'écran de connexion standard.
